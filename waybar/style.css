@@ -1,0 +1,109 @@
+/* ~/.config/waybar/style.css
+ * GTK CSS — zero hardcoded colors, pure pywal.
+ * wal -i ~/wallpaper && killall waybar && waybar &
+ */
+
+@import url("/home/ethan/.cache/wal/colors-waybar.css");
+
+/* ── Reset ── */
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "JetBrainsMono Nerd Font Propo", "Adwaita Sans", sans-serif;
+    font-weight:   bold;
+    min-height:    0;
+    padding:       0;
+    margin:        0;
+}
+
+/* ── Bar — fully transparent ── */
+window#waybar {
+    background: transparent;
+}
+
+/* ── Tooltip ── */
+tooltip {
+    background:    @color0;
+    border:        1px solid @color5;
+    border-radius: 12px;
+}
+tooltip label {
+    color:   @foreground;
+    padding: 6px;
+}
+
+/* ── THE one pill — wraps everything ── */
+.modules-center {
+    background-color: @color0;
+    border-radius:    50px;
+    margin-top:       6px;
+    padding:          0 12px;
+}
+
+.modules-left,
+.modules-right {
+    background: transparent;
+}
+
+/* ── Workspaces — inside the pill ── */
+#workspaces {
+    padding: 0;
+    margin:  0;
+}
+
+#workspaces button {
+    padding:          0 6px;
+    margin:           4px 3px;
+    border-radius:    50px;
+    color:            @color8;
+    background-color: @background;
+    transition:       all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    background: linear-gradient(135deg, @color4, @color6);
+    color:            @background;
+    min-width:        40px;
+    border-radius:    20px;
+    font-size:        13px;
+    transition:       all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+    background-color: @color13;
+    color:            @foreground;
+    border-radius:    16px;
+    min-width:        50px;
+    transition:       all 0.3s ease-in-out;
+}
+
+#workspaces button.urgent {
+    background-color: @color10;
+    color:            @foreground;
+    border-radius:    16px;
+    min-width:        50px;
+    transition:       all 0.3s ease-in-out;
+}
+
+/* ── All other modules sit bare inside the pill ── */
+#clock,
+#pulseaudio,
+#network,
+#mpris,
+#battery {
+    background-color: transparent;
+    padding:          0 12px;
+    border-radius:    0;
+}
+
+/* ── Colors from your reference scheme ── */
+#clock                           { color: @foreground; }
+#pulseaudio                      { color: @color12; }
+#pulseaudio.muted                { color: @color8; }
+#network                         { color: @color14; }
+#network.disconnected            { color: @color8; }
+#battery                         { color: @color11; }
+#battery.charging                { color: @color10; }
+#battery.warning:not(.charging)  { color: @color13; }
+#battery.critical:not(.charging) { color: @color10; }
+#mpris                            { color: @color9; }

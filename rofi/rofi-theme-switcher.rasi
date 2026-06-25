@@ -1,0 +1,71 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               " ";
+	drun-display-format:        "{name}";
+}
+
+window {
+    width:                       1000px;
+    height:                      0px;
+    border:                      0px;
+    border-radius:               12px;
+    border-color:                @selected-normal-background;
+    background-color:            @background;
+}
+mainbox {
+    spacing:                     10px;
+    padding:                     10px;
+    border:                      0px;
+    border-radius:               12px 12px 12px 12px;
+    border-color:                @selected-normal-background;
+    background-color:            @background;
+    children:                    ["listview"];
+}
+listview {
+    columns:                     5;
+    lines:                       3;
+    scrollbar:                   false;
+    layout:                      vertical;
+    border:                      0px;
+    border-color:                @selected-normal-background;
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+element {
+    spacing:                     6px;
+    padding:                     4px;
+    border:                      0px;
+    border-radius:               10px;
+    border-color:                @selected-normal-background;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    orientation:                 vertical;
+}
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @normal-foreground;
+}
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @foreground;
+}
+element selected.normal {
+    background-color:            @selected-normal-background;
+    text-color:                  @selected-normal-foreground;
+}
+element-icon {
+    size:                        100px;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+element-text {
+   background-color:            transparent;
+    text-color:                  inherit;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+    padding:                     0px;
+    margin:                      0px;
+}

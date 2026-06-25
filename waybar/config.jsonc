@@ -1,0 +1,67 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "exclusive": true,
+    "modules-center": [
+        "clock",
+        "mpris",
+        "hyprland/workspaces",
+        "pulseaudio",
+        "network",
+        "battery"
+    ],
+    "clock": {
+        "format": "{:%b %d, %I:%M %p}",
+        "tooltip": true
+    },
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        }
+    },
+    "mpris": {
+        "format": "{player_icon} {title} — {artist}",
+        "format-paused": "{status_icon} {title} — {artist}",
+        "player-icons": {
+            "default": "▶",
+            "spotify": "",
+            "firefox": "󰈹",
+            "chromium": ""
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        "max-length": 40,
+        "tooltip": false,
+        "ignored-players": ["playerctld"]
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5,
+        "tooltip": false
+    },
+    "network": {
+        "on-click": "kitty -e nmtui",
+        "format-wifi": "󰤨",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤭",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"],
+        "states": { "warning": 30, "critical": 15 },
+        "tooltip": false
+    }
+}

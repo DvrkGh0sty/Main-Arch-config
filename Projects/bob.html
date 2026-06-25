@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Zero · Summer 2026</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0b0d15;
+      font-family: 'Inter', sans-serif;
+      color: #eef2f6;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    /* header / hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 1.8rem;
+    }
+
+    .hero-left h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f0b9ff 0%, #a5f3fc 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+    }
+
+    .hero-left .subhead {
+      font-size: 1.1rem;
+      color: #a0aec0;
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-left .subhead i {
+      color: #7dd3fc;
+      margin-right: 0.2rem;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(4px);
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      letter-spacing: 0.3px;
+    }
+
+    .badge i {
+      margin-right: 0.4rem;
+      color: #7dd3fc;
+    }
+
+    .hero-right {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+
+    .hero-right i {
+      color: #facc15;
+      margin-right: 0.4rem;
+    }
+
+    /* rule of 10 */
+    .rules-10 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.8rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 40px;
+      padding: 1rem 2rem;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      justify-content: center;
+    }
+
+    .rules-10 span {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rules-10 i {
+      color: #7dd3fc;
+      font-size: 0.7rem;
+    }
+
+    /* grid cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .card {
+      background: #121620;
+      border-radius: 32px;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.6);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    .card:hover {
+      border-color: rgba(125, 211, 252, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 30px 50px -16px #00000080;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-header h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .card-header i {
+      font-size: 1.6rem;
+      color: #7dd3fc;
+      opacity: 0.7;
+    }
+
+    .card-content {
+      font-size: 0.95rem;
+      color: #d1d9e8;
+    }
+
+    .card-content ul, .card-content .list {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .card-content li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .card-content li i {
+      color: #7dd3fc;
+      font-size: 0.7rem;
+      width: 1.2rem;
+    }
+
+    .mini-progress {
+      background: #1e2533;
+      height: 6px;
+      border-radius: 12px;
+      margin: 0.8rem 0 0.2rem;
+      overflow: hidden;
+    }
+
+    .mini-progress .fill {
+      height: 100%;
+      width: 80%;
+      background: linear-gradient(90deg, #7dd3fc, #a78bfa);
+      border-radius: 12px;
+    }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #b9c7e0;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .chip i {
+      margin-right: 0.3rem;
+      color: #7dd3fc;
+      font-size: 0.6rem;
+    }
+
+    .double-col {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 700px) {
+      .double-col {
+        grid-column: span 1;
+      }
+      .hero-left h1 {
+        font-size: 2.4rem;
+      }
+      .rules-10 {
+        padding: 0.8rem 1.2rem;
+        gap: 0.6rem 1.2rem;
+      }
+    }
+
+    .daily-routine-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.3rem 1rem;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .daily-routine-mini .time {
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .daily-routine-mini .act {
+      color: #d1d9e8;
+    }
+
+    .faith-prayer {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .faith-prayer span {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .faith-prayer i {
+      color: #facc15;
+      margin-right: 0.3rem;
+    }
+
+    .footer-note {
+      margin-top: 4rem;
+      text-align: center;
+      color: #4b5566;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      padding-top: 2rem;
+    }
+
+    .footer-note i {
+      color: #7dd3fc;
+      margin: 0 0.2rem;
+    }
+
+    .highlight {
+      background: linear-gradient(145deg, #7dd3fc20, #a78bfa20);
+      padding: 0.1rem 0.3rem;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      color: #b9c7e0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .btn-ghost i {
+      margin-right: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1>⏳ PROJECT ZERO</h1>
+      <div class="subhead">
+        <i class="fas fa-calendar-alt"></i> Summer 2026 · 79 days
+        <span style="margin:0 0.2rem;color:#4b5566;">|</span>
+        <i class="fas fa-flag-checkered"></i> Cape Town · IGCSE & A-Level
+      </div>
+      <div class="badge-group">
+        <span class="badge"><i class="fas fa-bolt"></i> Physics · Chem · Maths</span>
+        <span class="badge"><i class="fas fa-code"></i> C++ · DSA</span>
+        <span class="badge"><i class="fas fa-basketball"></i> Ball · Calisthenics</span>
+        <span class="badge"><i class="fas fa-pray"></i> Faith · Discipline</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <i class="fas fa-fire"></i> 80% consistency → win
+    </div>
+  </div>
+
+  <!-- 10 RULES -->
+  <div class="rules-10">
+    <span><i class="fas fa-check-circle"></i> 8:00 wake</span>
+    <span><i class="fas fa-check-circle"></i> no doomscroll</span>
+    <span><i class="fas fa-check-circle"></i> study before games</span>
+    <span><i class="fas fa-check-circle"></i> code daily</span>
+    <span><i class="fas fa-check-circle"></i> pray twice</span>
+    <span><i class="fas fa-check-circle"></i> train 6x/week</span>
+    <span><i class="fas fa-check-circle"></i> create daily</span>
+    <span><i class="fas fa-check-circle"></i> 11:00 sleep</span>
+    <span><i class="fas fa-check-circle"></i> consistency > perfection</span>
+  </div>
+
+  <!-- GRID CARDS -->
+  <div class="grid">
+
+    <!-- Daily Routine -->
+    <div class="card double-col">
+      <div class="card-header">
+        <h2><i class="far fa-clock" style="margin-right:0.5rem;color:#7dd3fc;"></i> daily rhythm</h2>
+        <i class="fas fa-rotate-right"></i>
+      </div>
+      <div class="card-content">
+        <div class="daily-routine-mini">
+          <span class="time">8:00</span><span class="act">Wake · hydrate</span>
+          <span class="time">8:15</span><span class="act">Prayer & shower</span>
+          <span class="time">9:45</span><span class="act">Study setup</span>
+          <span class="time">10:00</span><span class="act"><i class="fas fa-flask"></i> Physics / Chem</span>
+          <span class="time">12:00</span><span class="act">Lunch</span>
+          <span class="time">13:00</span><span class="act"><i class="fas fa-calculator"></i> Maths / CS</span>
+          <span class="time">15:00</span><span class="act"><i class="fas fa-language"></i> English / Zulu</span>
+          <span class="time">16:00</span><span class="act"><i class="fas fa-dumbbell"></i> Workout / Ball</span>
+          <span class="time">17:30</span><span class="act"><i class="fas fa-code"></i> C++ coding</span>
+          <span class="time">19:00</span><span class="act">Dinner · dishes</span>
+          <span class="time">20:40</span><span class="act">Devotion · prayer</span>
+          <span class="time">21:00</span><span class="act"><i class="fab fa-youtube"></i> Script · edit</span>
+          <span class="time">22:00</span><span class="act">Free · wind down</span>
+          <span class="time">23:00</span><span class="act"><i class="fas fa-moon"></i> Sleep</span>
+        </div>
+        <div style="margin-top:0.8rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="chip"><i class="fas fa-book-open"></i> 3h study</span>
+          <span class="chip"><i class="fas fa-dumbbell"></i> 1h move</span>
+          <span class="chip"><i class="fas fa-pray"></i> 20min faith</span>
+          <span class="chip"><i class="fas fa-video"></i> 1h creation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Physics + Chemistry roadmap -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-atom" style="margin-right:0.5rem;color:#7dd3fc;"></i> physical science</h2>
+        <i class="fas fa-bolt"></i>
+      </div>
+      <div class="card-content">
+        <div style="display:flex;justify-content:space-between;font-weight:600;font-size:0.8rem;color:#94a3b8;margin-bottom:0.2rem;">
+          <span>Physics</span><span>Chemistry</span>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <ul style="flex:1;">
+            <li><i class="fas fa-ruler"></i> Measurements</li>
+            <li><i class="fas fa-arrow-right"></i> Motion · Forces</li>
+            <li><i class="fas fa-bolt"></i> Energy · Pressure</li>
+            <li><i class="fas fa-wave-square"></i> Waves · Light</li>
+            <li><i class="fas fa-bolt"></i> Electricity · Magnetism</li>
+            <li><i class="fas fa-sun"></i> Radioactivity · Space</li>
+          </ul>
+          <ul style="flex:1;">
+            <li><i class="fas fa-circle"></i> States · Atomic</li>
+            <li><i class="fas fa-link"></i> Bonding · Stoich</li>
+            <li><i class="fas fa-bolt"></i> Electrochem · Energy</li>
+            <li><i class="fas fa-flask"></i> Rates · Acids</li>
+            <li><i class="fas fa-table"></i> Periodic · Metals</li>
+            <li><i class="fas fa-leaf"></i> Air · Organic</li>
+          </ul>
+        </div>
+        <div class="mini-progress"><div class="fill" style="width:65%;"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#64748b;margin-top:0.2rem;">
+          <span>📘 IGCSE foundation</span>
+          <span>65% roadmap</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maths / CS -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-code" style="margin-right:0.5rem;color:#a78bfa;"></i> maths · CS</h2>
+        <i class="fas fa-microchip"></i>
+      </div>
+      <div class="card-content">
+        <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
+          <span class="chip"><i class="fas fa-calculator"></i> Algebra · Calculus</span>
+          <span class="chip"><i class="fas fa-laptop-code"></i> C++ · OOP</span>
+        </div>
+        <ul style="margin-top:0.4rem;">
+          <li><i class="fas fa-check"></i> 45min theory · 45min problems</li>
+          <li><i class="fas fa-check"></i> Phases: vars → loops → OOP</li>
+          <li><i class="fas fa-check"></i> Projects: GradeCalc, LibrarySys</li>
+          <li><i class="fas fa-check"></i> A-Level CS prep</li>
+        </ul>
+        <div class="chip-group">
+          <span class="chip"><i class="fas fa-code"></i> vectors · strings</span>
+          <span class="chip"><i class="fas fa-database"></i> file I/O</span>
+          <span class="chip"><i class="fas fa-crown"></i> inheritance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Workout + Basketball -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-dumbbell" style="margin-right:0.5rem;color:#facc15;"></i> move · ball</h2>
+        <i class="fas fa-basketball"></i>
+      </div>
+      <div class="card-content">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.2rem 0.8rem;font-size:0.85rem;">
+          <span><span style="color:#94a3b8;">Mon</span> Push</span>
+          <span><span style="color:#94a3b8;">Tue</span> Pull</span>
+          <span><span style="color:#94a3b8;">Wed</span> 🏀 Skills</span>
+          <span><span style="color:#94a3b8;">Thu</span> Legs</span>
+          <span><span style="color:#94a3b8;">Fri</span> Upper</span>
+          <span><span style="color:#94a3b8;">Sat</span> 🏀 Game</span>
+          <span colspan="2"><span style="color:#94a3b8;">Sun</span> Recovery · stretch</span>
+        </div>
+        <div style="margin-top:0.8rem;background:#1a1f2b;padding:0.4rem 0.8rem;border-radius:20px;">
+          <span style="font-size:0.8rem;"><i class="fas fa-fire" style="color:#facc15;"></i> core 3×/week: hollow hold · leg raises</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- English / Zulu + YouTube -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-language" style="margin-right:0.5rem;color:#7dd3fc;"></i> lang & create</h2>
+        <i class="fab fa-youtube"></i>
+      </div>
+      <div class="card-content">
+        <div style="display:flex;gap:1.2rem;flex-wrap:wrap;">
+          <div><span class="chip"><i class="fas fa-pen-fancy"></i> English</span> essays · comprehension</div>
+          <div><span class="chip"><i class="fas fa-comment"></i> Zulu</span> vocab · reading</div>
+        </div>
+        <ul style="margin-top:0.4rem;">
+          <li><i class="fab fa-youtube"></i> 9:00 script · storyboard</li>
+          <li><i class="fas fa-video"></i> 9:30 edit · shorts · upload</li>
+        </ul>
+        <div style="background:#1a1f2b;border-radius:20px;padding:0.3rem 1rem;margin-top:0.6rem;display:flex;justify-content:space-between;">
+          <span style="font-size:0.75rem;"><i class="fas fa-check-circle" style="color:#7dd3fc;"></i> daily content</span>
+          <span style="font-size:0.75rem;color:#94a3b8;">#ProjectZero</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Faith & Prayer -->
+    <div class="card">
+      <div class="card-header">
+        <h2><i class="fas fa-pray" style="margin-right:0.5rem;color:#facc15;"></i> faith · discipline</h2>
+        <i class="fas fa-heart" style="color:#f87171;"></i>
+      </div>
+      <div class="card-content">
+        <div class="faith-prayer">
+          <span><i class="fas fa-sun"></i> Morning prayer · 10min</span>
+          <span><i class="fas fa-moon"></i> Devotion · 10min</span>
+          <span><i class="fas fa-star"></i> Evening prayer · 10min</span>
+        </div>
+        <div style="margin-top:0.6rem;font-size:0.9rem;background:#121620;padding:0.6rem 1rem;border-radius:24px;border-left:2px solid #facc15;">
+          <i class="fas fa-book-open" style="color:#facc15;margin-right:0.5rem;"></i> 
+          gratitude · guidance · wisdom
+        </div>
+      </div>
+    </div>
+
+    <!-- success forecast -->
+    <div class="card double-col" style="background:linear-gradient(145deg, #141a26, #0f131e);">
+      <div class="card-header">
+        <h2><i class="fas fa-rocket" style="margin-right:0.5rem;color:#a78bfa;"></i> by september · 80% consistency</h2>
+        <i class="fas fa-flag-checkered" style="color:#facc15;"></i>
+      </div>
+      <div class="card-content" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;">
+        <div><i class="fas fa-check-circle" style="color:#7dd3fc;"></i> IGCSE Physics · Chem foundations</div>
+        <div><i class="fas fa-check-circle" style="color:#7dd3fc;"></i> Maths improved · A-Level CS started</div>
+        <div><i class="fas fa-check-circle" style="color:#7dd3fc;"></i> Daily C++ habit · 6+ projects</div>
+        <div><i class="fas fa-check-circle" style="color:#7dd3fc;"></i> Basketball & calisthenics gains</div>
+        <div><i class="fas fa-check-circle" style="color:#7dd3fc;"></i> YouTube content pipeline</div>
+        <div><i class="fas fa-check-circle" style="color:#facc15;"></i> Rebuilt discipline & spiritual rhythm</div>
+      </div>
+      <div style="margin-top:1rem;font-size:0.8rem;color:#94a3b8;display:flex;gap:1.2rem;flex-wrap:wrap;">
+        <span><i class="fas fa-hourglass-half"></i> 79 days · sustainable</span>
+        <span><i class="fas fa-bolt"></i> “A missed day is bad; a missed week is a problem.”</span>
+      </div>
+    </div>
+
+  </div> <!-- end grid -->
+
+  <div class="footer-note">
+    <i class="fas fa-crown"></i> PROJECT ZERO · summer 2026 · built with discipline & grace 
+    <i class="fas fa-heart" style="color:#f87171;margin-left:0.3rem;"></i>
+  </div>
+
+</div> <!-- container -->
+</body>
+</html>
